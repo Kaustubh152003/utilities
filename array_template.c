@@ -29,3 +29,27 @@ void scan_array(int* arr,int n)
 	        j++;
 	    }
 }
+int min_array(int* arr,int n)
+{
+    int j=0;
+    int min=arr[0];
+    while(j<n)
+    {
+        if(arr[j]<min)
+        min=arr[j];
+        j++;
+    }
+    return min;
+}
+int max_array(int* arr,int n)
+{
+    int j=0;
+    int max=arr[0];
+    while(j<n)
+    {
+        if(arr[j]>max)
+        max=arr[j];
+        j++;
+    }
+    return max;
+}
