@@ -53,3 +53,19 @@ int max_array(int* arr,int n)
     }
     return max;
 }
+void concatinate(int* arr1,int n1,int* arr2,int n2,int* target)
+{
+        int j=0;
+        while(j<n1)
+        {
+            target[j]=arr1[j];
+            j++;
+        }
+        int p=0;
+        while(p<n2)
+        {
+            target[j]=arr2[p];
+            p++;
+            j++;
+        }
+ }
