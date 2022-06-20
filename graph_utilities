@@ -1,0 +1,32 @@
+void dfs_func(struct graph* g,int v)
+{
+    if(g->mark[v]==0)
+    {
+        g->mark[v]=1;
+        printf("%d ",v);
+        struct ListNode* ptr=g->head[v];
+        while(ptr!=0)
+        {
+            dfs_func(g,ptr->data,mark);
+            ptr=ptr->next;
+        }
+        
+    }
+}
+void dfs(struct graph *g, int n, int m) 
+{
+    int mark[n+1];
+    int j=0;
+    while(j<=n)
+    {
+        mark[j]=0;
+        j++;
+    }
+    j=0;
+    while(j<n)
+    {
+        if(mark[j]==0)
+        dfs_func(g,j,mark);
+        j++;
+    }
+}
