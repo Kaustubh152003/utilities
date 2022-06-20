@@ -74,8 +74,8 @@ void dfs(struct graph *g, int n)
         g->mark[j]=0;
         j++;
     }
-    j=0;
-    while(j<n)
+    j=1;
+    while(j<=n)
     {
         if(g->mark[j]==0)
         dfs_func(g,j);
@@ -95,6 +95,42 @@ void print_graph(struct graph* g,int n)
             cur=cur->next;
         }
         printf("\n");
+        j++;
+    }
+}
+void addnodes(struct graph *g,int v,int* queue,int* p,int* mark)
+{
+    struct ListNode* ptr=g->head[v];
+    while(ptr!=0)
+    {
+        if(mark[ptr->data]==0)
+        {
+            mark[ptr->data]=1;
+            queue[*p]=ptr->data;
+            *p=*p+1;
+        }
+        ptr=ptr->next;
+    }
+}
+void bfs(struct graph *g, int n) 
+{
+    
+    int* queue=(int*)malloc(n*sizeof(int));
+    int mark[n];
+    int j=0;
+    while(j<n)
+    {
+        mark[j]=0;
+        j++;
+    }
+    int p=1;
+    queue[0]=0;
+    j=0;
+    while(j<p)
+    {
+        mark[queue[j]]=1;
+        printf("%d ",queue[j]);
+        addnodes(g,queue[j],queue,&p,mark);
         j++;
     }
 }
