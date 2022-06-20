@@ -1,3 +1,4 @@
+#include <stdio.h>
 void reverse_array(int* arr,int n)
 {
     int j=0;
