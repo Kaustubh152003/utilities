@@ -57,7 +57,7 @@ void dfs_func(struct graph* g,int v)
     {
         g->mark[v]=1;
         printf("%d ",v);
-        struct ListNode* ptr=g->head[v];
+        struct node* ptr=g->list[v];
         while(ptr!=0)
         {
             dfs_func(g,ptr->data,mark);
@@ -71,7 +71,7 @@ void dfs(struct graph *g, int n)
     int j=0;
     while(j<=n)
     {
-        mark[j]=0;
+        g->mark[j]=0;
         j++;
     }
     j=0;
