@@ -77,7 +77,7 @@ void dfs(struct graph *g, int n)
     j=0;
     while(j<n)
     {
-        if(mark[j]==0)
+        if(g->mark[j]==0)
         dfs_func(g,j);
         j++;
     }
