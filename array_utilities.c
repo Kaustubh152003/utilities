@@ -23,12 +23,12 @@ void print_array(int* arr,int n)
 }
 void scan_array(int* arr,int n)
 {
-    int j=0;
-	    while(j<n)
-	    {
-	        scanf("%d ",arr+j);
-	        j++;
-	    }
+    	int j=0;
+	while(j<n)
+	{
+	    scanf("%d ",arr+j);
+	    j++;
+	}
 }
 int min_array(int* arr,int n)
 {
