@@ -55,6 +55,16 @@ void print_till_x(char* str,int x) // prints the string only till the xth charac
         j++;
     }
 }
+int check(char* s1,int n,char* s2)
+{
+    int j=0;
+    while(s1[j]!='\0' && s2[j]!='\0' && s1[j]==s2[j] && j<n)
+    j++;
+    if(j==n)
+    return 1;
+    else
+    return 0;
+}
 int srsl(char* str) //return the size of smallest repeating string which forms thr string str (basically [str,str+p) is the smallest repeating string)
 {
     int j=0;
