@@ -20,6 +20,25 @@ void reverse(char* str, int n)
         p--;
     }
 }
+int isPalindrome(char *str)
+{
+    int j=0;
+    while(str[j]!='\0')
+    j++;
+    int n=j;
+    n--;
+    j=0;
+    while(j<n && str[j]==str[n])
+    {
+        j++;
+        n--;
+    }
+    if(j>=n)
+    return 1;
+    else
+    return 0;
+    
+}
 int size_of_str(char* str)
 {
     int j=0;
