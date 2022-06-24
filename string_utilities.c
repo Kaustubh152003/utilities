@@ -3,6 +3,23 @@
 #include <bits/stdc++.h>
 #include <math.h>
 using namespace std;
+void swap(char* a,char* b)
+{
+    char temp=*a;
+    *a=*b;
+    *b=temp;
+}
+void reverse(char* str, int n)
+{
+    int j=0;
+    int p=n-1;
+    while(j<p)
+    {
+        swap(str+j,str+p);
+        j++;
+        p--;
+    }
+}
 int size_of_str(char* str)
 {
     int j=0;
