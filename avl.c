@@ -5,7 +5,7 @@ struct Node
     Node *right;
     int height;
 };
-int max(int a,int b)
+    int max(int a,int b)
     {
         if(a>b)
         return a;
@@ -127,5 +127,54 @@ int max(int a,int b)
                 root=balance(root);
             }
             return root;
+        }
+    }
+    Node* min_delete(Node* root,int* val)
+    {
+        if(root->left==0)
+        {
+            *val=root->data;
+            return root->right;
+        }
+        else
+        {
+            root->left=min_delete(root->left,val);
+            reval_height(root);
+            return balance(root);
+        }
+    }
+    Node* deleteNode(Node* root, int k)
+    {
+        if(root==0)
+        return 0;
+        else
+        {
+            if(k==root->data)
+            {
+                if(root->left==0)
+                return root->right;
+                else
+                {
+                    if(root->right==0)
+                    return root->left;
+                    else
+                    {
+                        int v=-1;
+                        root->right=min_delete(root->right,&v);
+                        root->data=v;
+                        reval_height(root);
+                        return balance(root);
+                    }
+                }
+            }
+            else
+            {
+                if(k<root->data)
+                root->left=deleteNode(root->left,k);
+                else
+                root->right=deleteNode(root->right,k);
+                reval_height(root);
+                return balance(root);
+            }
         }
     }
