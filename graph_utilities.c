@@ -134,6 +134,23 @@ void bfs(struct graph *g, int n)
         j++;
     }
 }
+int height(struct graph* g,int v)
+{
+    node* ptr=g->list[v];
+    g->mark[v]=1;
+    int max=1;
+    while(ptr!=0)
+    {
+        if(g->mark[ptr->key]==0)
+        {
+            int h=height(g,ptr->key);
+            if(1+h>max)
+            max=1+h;
+        }
+            ptr=ptr->next;
+    }
+    return max;
+}
 int main()
 {
     int n,m;
