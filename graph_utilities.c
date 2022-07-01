@@ -60,7 +60,7 @@ void dfs_func(struct graph* g,int v)
         struct node* ptr=g->list[v];
         while(ptr!=0)
         {
-            dfs_func(g,ptr->data,mark);
+            dfs_func(g,ptr->key);
             ptr=ptr->next;
         }
         
@@ -100,13 +100,13 @@ void print_graph(struct graph* g,int n)
 }
 void addnodes(struct graph *g,int v,int* queue,int* p,int* mark)
 {
-    struct ListNode* ptr=g->head[v];
+    struct node* ptr=g->list[v];
     while(ptr!=0)
     {
-        if(mark[ptr->data]==0)
+        if(g->mark[ptr->key]==0)
         {
-            mark[ptr->data]=1;
-            queue[*p]=ptr->data;
+            g->mark[ptr->key]=1;
+            queue[*p]=ptr->key;
             *p=*p+1;
         }
         ptr=ptr->next;
