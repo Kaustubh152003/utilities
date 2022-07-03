@@ -98,9 +98,10 @@ void print_graph(struct graph* g,int n)
         j++;
     }
 }
-void addnodes(struct graph *g,int v,int* queue,int* p,int* mark)
+void addnodes(struct graph *g,int v,int* queue,int* p)
 {
     struct node* ptr=g->list[v];
+    int count=0;
     while(ptr!=0)
     {
         if(g->mark[ptr->key]==0)
@@ -108,6 +109,7 @@ void addnodes(struct graph *g,int v,int* queue,int* p,int* mark)
             g->mark[ptr->key]=1;
             queue[*p]=ptr->key;
             *p=*p+1;
+            count++;
         }
         ptr=ptr->next;
     }
@@ -116,21 +118,21 @@ void bfs(struct graph *g, int n)
 {
     
     int* queue=(int*)malloc(n*sizeof(int));
-    int mark[n];
     int j=0;
-    while(j<n)
+    while(j<=n)
     {
-        mark[j]=0;
+        g->mark[j]=0;
         j++;
     }
+    int sel=1;
     int p=1;
-    queue[0]=0;
+    queue[0]=1;
     j=0;
     while(j<p)
     {
-        mark[queue[j]]=1;
+        g->mark[queue[j]]=1;
         printf("%d ",queue[j]);
-        addnodes(g,queue[j],queue,&p,mark);
+        addnodes(g,queue[j],queue,&p);
         j++;
     }
 }
