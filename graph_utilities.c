@@ -136,6 +136,28 @@ void bfs(struct graph *g, int n)
         j++;
     }
 }
+struct node* dll(struct node* ptr,int x)
+{
+    if(ptr!=0)
+    {
+        if(ptr->key==x)
+        return ptr->next;
+        else
+        {
+            ptr->next=dll(ptr->next,x);
+            return ptr;
+        }
+    }
+    else
+    return 0;
+}
+void delete_edge(struct graph* g,int x,int y) //in building and verification. Not yet ready
+{
+    struct node* ptr=g->list[x];
+    g->list[x]=dll(ptr,y);
+    ptr=g->list[y];
+    g->list[y]=dll(ptr,x);
+}
 int height(struct graph* g,int v)
 {
     node* ptr=g->list[v];
