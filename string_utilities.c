@@ -95,3 +95,24 @@ int srsl(char* str) //return the size of smallest repeating string which forms t
     }
     return p;
 }
+long long get_int(char* str) {
+        int j=0;
+        long long num=0;
+        long long sign=1;
+        if(str[j]=='-')
+        {
+            sign=-1;
+            j++;
+        }
+        while(str[j]!='\0')
+        {
+            if(str[j]<'0' || str[j]>'9')
+            return -1;
+            else
+            {
+                num=num*10+str[j]-'0';
+                j++;
+            }
+        }
+        return sign*num;
+    }
