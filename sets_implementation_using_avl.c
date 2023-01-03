@@ -178,3 +178,20 @@ struct Node
             }
         }
     }
+struct Node* bst_search(struct Node* root,int k)
+{
+    if(root!=0)
+    {
+        if(root->data==k)
+        return root;
+        else
+        {
+            if(k<root->data)
+            bst_search(root->left,k);
+            else
+            bst_search(root->right,k);
+        }
+    }
+    else
+    return 0;
+}
