@@ -112,8 +112,6 @@ struct Node
         return create(k);
         else
         {
-            if(root->data==k)
-            return root;
             if(k<root->data)
             {
                 root->left=insertToAVL(root->left,k);
@@ -194,4 +192,28 @@ struct Node* bst_search(struct Node* root,int k)
     }
     else
     return 0;
+}
+int maxi(struct Node* root)
+{
+    if(root!=0)
+    {
+        if(root->right==0)
+        return root->data;
+        else
+        return maxi(root->right);
+    }
+    else
+    return NULL;
+}
+int mini(struct Node* root)
+{
+    if(root!=0)
+    {
+        if(root->left==0)
+        return root->data;
+        else
+        return maxi(root->left);
+    }
+    else
+    return NULL;
 }
