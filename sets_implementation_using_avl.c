@@ -185,9 +185,9 @@ struct Node* bst_search(struct Node* root,int k)
         else
         {
             if(k<root->data)
-            bst_search(root->left,k);
+            return bst_search(root->left,k);
             else
-            bst_search(root->right,k);
+            return bst_search(root->right,k);
         }
     }
     else
