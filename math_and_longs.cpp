@@ -23,3 +23,16 @@ long long power(long long x,long long a,long long mod)
         return p;
     }
 }
+
+long long * prefix_sum(int* arr,int n)
+{
+    long long* ans=(long long*)malloc(n*sizeof(long long));
+    ans[0]=arr[0];
+    int j=1;
+    while(j<n)
+    {
+        ans[j]=ans[j-1]+longer(arr[j]);
+        j++;
+    }
+    return ans;
+}
