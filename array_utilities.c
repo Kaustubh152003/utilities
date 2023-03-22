@@ -70,3 +70,16 @@ void concatinate(int* arr1,int n1,int* arr2,int n2,int* target)
             j++;
         }
  }
+
+long long * prefix_sum(int* arr,int n)
+{
+    long long* ans=(long long*)malloc(n*sizeof(long long));
+    ans[0]=arr[0];
+    int j=1;
+    while(j<n)
+    {
+        ans[j]=ans[j-1]+longer(arr[j]);
+        j++;
+    }
+    return ans;
+}
