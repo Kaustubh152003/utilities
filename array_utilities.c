@@ -69,7 +69,13 @@ void concatinate(int* arr1,int n1,int* arr2,int n2,int* target)
             p++;
             j++;
         }
- }
+}
+
+long long longer(int k)
+{
+    long long x=k;
+    return x;
+}
 
 long long * prefix_sum(int* arr,int n)
 {
