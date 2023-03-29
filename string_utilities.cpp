@@ -95,7 +95,8 @@ int srsl(char* str) //return the size of smallest repeating string which forms t
     }
     return p;
 }
-long long get_int(char* str) {
+long long get_int(char* str) 
+{
         int j=0;
         long long num=0;
         long long sign=1;
@@ -115,4 +116,41 @@ long long get_int(char* str) {
             }
         }
         return sign*num;
+}
+string from_charstar_to_string(char* str)
+{
+    int j=0;
+    string s;
+    while(str[j]!='\0')
+    {
+        s.push_back(str[j]);
+        j++;
     }
+    return s;
+}
+char* from_string_to_charstar(string s)
+{
+    int j=0;
+    char* str=(char*)malloc(s.length()*sizeof(char));
+    while(j<s.length())
+    {
+        str[j]=s[j];
+        j++;
+    }
+    str[j]='\0';
+    return str;
+}
+void concatinate(char* target,char* str)
+{
+    int j=0;
+    while(target[j]!='\0')
+    j++;
+    int k=0;
+    while(str[k]!='\0')
+    {
+        target[j]=str[k];
+        k++;
+        j++;
+    }
+    target[j]='\0';
+}
