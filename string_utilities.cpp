@@ -128,6 +128,17 @@ string from_charstar_to_string(char* str)
     }
     return s;
 }
+void copy_strtostr(char* str,char* c)
+{
+    int j=0;
+    while(c[j]!='\0')
+    {
+        str[j]=c[j];
+        j++;
+    }
+    str[j]='\0';
+
+}
 char* from_string_to_charstar(string s)
 {
     int j=0;
