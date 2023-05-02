@@ -36,3 +36,11 @@ long long * prefix_sum(int* arr,int n)
     }
     return ans;
 }
+
+int conv(int a) //converts a boolean to int
+{
+    if(a==1)
+    return 1;
+    else
+    return 0;
+}
