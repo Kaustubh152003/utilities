@@ -29,7 +29,7 @@ int is_sub_equal(char[] str1,int offset,char[] str2)
         }
         str[j]='\0';
     }
-    int strstr(String s, String x)
+    int substring_finder(String s, String x)
     {
        char[] str1=new char[s.length()+1];
        char[] str2=new char[x.length()+1];
