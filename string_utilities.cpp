@@ -142,7 +142,7 @@ void copy_strtostr(char* str,char* c)
 char* from_string_to_charstar(string s)
 {
     int j=0;
-    char* str=(char*)malloc(s.length()*sizeof(char));
+    char* str=(char*)malloc((s.length()+1)*sizeof(char));
     while(j<s.length())
     {
         str[j]=s[j];
@@ -150,6 +150,27 @@ char* from_string_to_charstar(string s)
     }
     str[j]='\0';
     return str;
+}
+int is_sub_equal(char* str1,int offset,char* str2)
+{
+    int j=0;
+    while(str1[j+offset]!='\0' && str2[j]!='\0' && str1[offset+j]==str2[j])
+    j++;
+    if(str2[j]=='\0')
+    return 1;
+    else
+    return 0;
+    
+}
+int func(char* str1,char* str2)
+{
+    int j=0;
+    while(str1[j]!='\0' && is_sub_equal(str1,j,str2)!=1)
+    j++;
+    if(str1[j]=='\0')
+    return -1;
+    else
+    return j;
 }
 void concatinate(char* target,char* str)
 {
