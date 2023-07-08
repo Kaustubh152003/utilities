@@ -162,7 +162,7 @@ int is_sub_equal(char* str1,int offset,char* str2)
     return 0;
     
 }
-int func(char* str1,char* str2)
+int substring_finder(char* str1,char* str2)
 {
     int j=0;
     while(str1[j]!='\0' && is_sub_equal(str1,j,str2)!=1)
