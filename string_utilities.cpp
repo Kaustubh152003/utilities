@@ -126,6 +126,32 @@ long long get_int(char* str)
         }
         return sign*num;
 }
+int* string_to_intarr(string S,int *sizeofarr)
+{
+    int j=0;
+    int n=S.length();
+    int* arr=(int*)malloc(sizeof(int)*n);
+    while(j<n)
+    {
+        arr[j]=S[j];
+        j++;
+    }
+    *sizeofarr=n;
+    return arr;
+}
+int* charr_to_intarr(char* str,int *sizeofarr)
+{
+    int j=0;
+    int n=size_of_str(str);
+    int* arr=(int*)malloc(sizeof(int)*n);
+    while(j<n && str[j]!='\0')
+    {
+        arr[j]=str[j];
+        j++;
+    }
+    *sizeofarr=n;
+    return arr;
+}
 string from_charstar_to_string(char* str)
 {
     int j=0;
