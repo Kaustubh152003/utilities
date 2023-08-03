@@ -30,6 +30,16 @@ void scan_array(int* arr,int n)
 	    j++;
 	}
 }
+int* duplicate_array(int* arr,int n,int* target)
+{
+    int j=0;
+    while(j<n)
+    {
+        target[j]=arr[j];
+        j++;
+    }
+    return arr;
+}
 int min_array(int* arr,int n)
 {
     int j=0;
