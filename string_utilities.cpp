@@ -20,6 +20,15 @@ void reverse(char* str, int n)
         p--;
     }
 }
+void print_string_from_intarray(int* arr,int n)
+{
+    int j=0;
+    while(j<n)
+    {
+        printf("%c",arr[j]);
+        j++;
+    }
+}
 int isPalindrome(char *str)
 {
     int j=0;
