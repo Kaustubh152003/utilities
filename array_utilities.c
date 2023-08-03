@@ -21,6 +21,15 @@ void print_array(int* arr,int n)
         j++;
     }
 }
+void print_string_from_intarray(int* arr,int n)
+{
+    int j=0;
+    while(j<n)
+    {
+        printf("%c",arr[j]);
+        j++;
+    }
+}
 void scan_array(int* arr,int n)
 {
     	int j=0;
