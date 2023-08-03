@@ -95,7 +95,17 @@ long long longer(int k)
     long long x=k;
     return x;
 }
-
+int* vector_to_arr(vector<int> v)
+{
+    int* arr=(int*)malloc(sizeof(int)*v.size());
+    int j=0;
+    while(j<v.size())
+    {
+        arr[j]=v[j];
+        j++;
+    }
+    return arr;
+}
 long long * prefix_sum(int* arr,int n)
 {
     long long* ans=(long long*)malloc(n*sizeof(long long));
