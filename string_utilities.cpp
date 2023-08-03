@@ -152,7 +152,7 @@ int* charr_to_intarr(char* str,int *sizeofarr)
     *sizeofarr=n;
     return arr;
 }
-string from_charstar_to_string(char* str)
+string charr_to_string(char* str)
 {
     int j=0;
     string s;
@@ -174,7 +174,7 @@ void copy_strtostr(char* str,char* c)
     str[j]='\0';
 
 }
-char* from_string_to_charstar(string s)
+char* string_to_charr(string s)
 {
     int j=0;
     char* str=(char*)malloc((s.length()+1)*sizeof(char));
