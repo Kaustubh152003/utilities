@@ -91,17 +91,18 @@ int** matrix_power_n(int** mat,int x,int y,int n)
         {
             int tx,ty;
             int** ans= multiply_matrix(p,x,y,p,x,y,&tx,&ty);
+            free(p);
             return ans;
         }
         else
         {
             int tx,ty;
             int** ans= multiply_matrix(p,x,y,p,x,y,&tx,&ty);
+            free(p);
             ans=multiply_matrix(ans,x,y,mat,x,y,&tx,&ty);
             return ans;
         }
     }
-    
 }
 int FindNthTerm(long long int n) 
 {
