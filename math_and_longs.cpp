@@ -44,3 +44,42 @@ int conv(int a) //converts a boolean to int
     else
     return 0;
 }
+
+int get_catalan(int n,int* arr)
+{
+    if(n==0)
+    return 1;
+    else
+    {
+        if(arr[n]!=-1)
+        return arr[n];
+        else
+        {
+            int j=1;
+            long long sum=0;
+            long long m=pow(10,9)+7;
+            while(j<=n)
+            {
+                long long p=(long long)(get_catalan(j-1,arr));
+                p=p*(long long)(get_catalan(n-j,arr));
+                p=p%m;
+                sum=sum+p;
+                sum=sum%m;
+                j++;
+            }
+            arr[n]=sum;
+            return sum;
+        }
+    }
+}
+int findCatalan(int n) 
+{
+    int arr[n+1];
+    int j=0;
+    while(j<n+1)
+    {
+        arr[j]=-1;
+        j++;
+    }
+    get_catalan(n,arr);
+}
