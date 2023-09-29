@@ -1,3 +1,7 @@
+#include <iostream>
+using namespace std;
+
+
 class AVLtree
 {
     struct Node //change this according to your node description
@@ -8,10 +12,6 @@ class AVLtree
         int height; //always keep this field
     };
     Node* root;
-    AVLtree()
-    {
-        root=NULL;
-    }
     int compare(Node* a,Node* b) //change this according to your node description(//less than returns -1 equals return 0 greater than return 1) 
     {
         if(a->data<b->data)
@@ -241,6 +241,10 @@ class AVLtree
         return NULL;
     }
     public:
+    AVLtree()
+    {
+        root=NULL;
+    }
     void insert_element()
     {
         
