@@ -1,25 +1,21 @@
-#include <iostream>
-using namespace std;
-
-
 class AVLtree
 {
-    struct Node
+    struct Node //change this according to your node description
     {
         int data;
-        Node *left;
-        Node *right;
-        int height;
+        Node *left; //always keep this field
+        Node *right; //always keep this field
+        int height; //always keep this field
     };
     Node* root;
     AVLtree()
     {
         root=NULL;
     }
-    int compare(Node* a,Node* b) //less than returns 1
+    int compare(Node* a,Node* b) //change this according to your node description(//less than returns -1 equals return 0 greater than return 1) 
     {
         if(a->data<b->data)
-        return 1;
+        return -1;
         else
         {
             if(a->data==b->data)
@@ -27,6 +23,19 @@ class AVLtree
             else
             return -1;
         }
+    }
+    Node* create(int k) //change this according to your node description
+    {
+        Node* ptr=(Node*)malloc(sizeof(Node));
+        ptr->left=0;
+        ptr->right=0;
+        ptr->data=k;
+        ptr->height=1;
+        return ptr;
+    }
+    void Node_datacopy(Node* a,Node* b) //change this according to your node description
+    {
+        a->data=b->data;
     }
     int max(int a,int b)
     {
@@ -41,39 +50,6 @@ class AVLtree
         return -a;
         else
         return a;
-    }
-    Node* max_of_tree(struct Node* root)
-    {
-        if(root!=0)
-        {
-            if(root->right==0)
-            return root;
-            else
-            return max_of_tree(root->right);
-        }
-        else
-        return NULL;
-    }
-    Node* min_of_tree(struct Node* root)
-    {
-        if(root!=0)
-        {
-            if(root->left==0)
-            return root;
-            else
-            return min_of_tree(root->left);
-        }
-        else
-        return NULL;
-    }
-    Node* create(int k)
-    {
-        Node* ptr=(Node*)malloc(sizeof(Node));
-        ptr->left=0;
-        ptr->right=0;
-        ptr->data=k;
-        ptr->height=1;
-        return ptr;
     }
     void reval_height(Node* root)
     {
@@ -153,18 +129,18 @@ class AVLtree
         return root;
         
     }
-    struct Node* search(struct Node* root,int k)
+    struct Node* search(struct Node* root,Node* x)
     {
         if(root!=0)
         {
-            if(root->data==k)
+            if(compare(root,x)==0)
             return root;
             else
             {
-                if(k<root->data)
-                return search(root->left,k);
+                if(compare(x,root)<0)
+                return search(root->left,x);
                 else
-                return search(root->right,k);
+                return search(root->right,x);
             }
         }
         else
@@ -176,7 +152,7 @@ class AVLtree
         return x;
         else
         {
-            if(compare(root,x))
+            if(compare(root,x)<0)
             {
                 root->left=insertToAVL(root->left,x);
                 reval_height(root);
@@ -191,27 +167,27 @@ class AVLtree
             return root;
         }
     }
-    Node* min_delete(Node* root,int* val)
+    Node* min_delete(Node* root,Node** x)
     {
         if(root->left==0)
         {
-            *val=root->data;
+            *x=root;
             return root->right;
         }
         else
         {
-            root->left=min_delete(root->left,val);
+            root->left=min_delete(root->left,x);
             reval_height(root);
             return balance(root);
         }
     }
-    Node* deleteNode(Node* root, int k)
+    Node* deleteNode(Node* root, Node* x)
     {
         if(root==0)
         return 0;
         else
         {
-            if(k==root->data)
+            if(compare(root,x)==0)
             {
                 if(root->left==0)
                 return root->right;
@@ -221,9 +197,9 @@ class AVLtree
                     return root->left;
                     else
                     {
-                        int v=-1;
+                        Node* v;
                         root->right=min_delete(root->right,&v);
-                        root->data=v;
+                        Node_datacopy(root,v);
                         reval_height(root);
                         return balance(root);
                     }
@@ -231,13 +207,58 @@ class AVLtree
             }
             else
             {
-                if(k<root->data)
-                root->left=deleteNode(root->left,k);
+                if(compare(x,root)<1)
+                root->left=deleteNode(root->left,x);
                 else
-                root->right=deleteNode(root->right,k);
+                root->right=deleteNode(root->right,x);
                 reval_height(root);
                 return balance(root);
             }
         }
+    }
+    Node* maxi(struct Node* root)
+    {
+        if(root!=0)
+        {
+            if(root->right==0)
+            return root;
+            else
+            return maxi(root->right);
+        }
+        else
+        return NULL;
+    }
+    Node* mini(struct Node* root)
+    {
+        if(root!=0)
+        {
+            if(root->left==0)
+            return root;
+            else
+            return mini(root->left);
+        }
+        else
+        return NULL;
+    }
+    public:
+    void insert_element()
+    {
+        
+    }
+    void search_element()
+    {
+        
+    }
+    void delete_element()
+    {
+        
+    }
+    void min_of_tree()
+    {
+        
+    }
+    void max_of_tree()
+    {
+        
     }
 };
