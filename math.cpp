@@ -1,8 +1,3 @@
-long long longer(int k)
-{
-    long long x=k;
-    return x;
-}
 int positive_modulo(long long int x,long long int y)
 {
     long long z=((x%y)+y)%y;
@@ -23,7 +18,6 @@ long long power(long long x,long long a,long long mod)
         return p;
     }
 }
-
 long long * prefix_sum(int* arr,int n)
 {
     long long* ans=(long long*)malloc(n*sizeof(long long));
@@ -82,4 +76,19 @@ int findCatalan(int n)
         j++;
     }
     get_catalan(n,arr);
+}
+
+int nod(int x) //number of divisors
+{
+    int j=1;
+    int ans=0;
+    while(j<sqrt(x))
+    {
+        if(x%j==0)
+        ans=ans+2;
+        j++;
+    }
+    if(x%j==0 && j*j==x)
+    ans++;
+    return ans;
 }
