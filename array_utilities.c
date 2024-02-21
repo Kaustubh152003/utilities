@@ -12,6 +12,17 @@ void reverse_array(int* arr,int n)
         j++;
     }
 }
+
+void initialize_array(int* arr,int n,int k)
+{
+    int j=0;
+    while(j<n)
+    {
+        arr[j]=k;
+        j++;
+    }
+}
+
 void print_array(int* arr,int n)
 {
     int j=0;
