@@ -100,12 +100,6 @@ void concatinate(int* arr1,int n1,int* arr2,int n2,int* target)
             j++;
         }
 }
-
-long long longer(int k)
-{
-    long long x=k;
-    return x;
-}
 int* vector_to_array(vector<int> v,int* array_size)
 {
 		int n=v.size();
@@ -126,7 +120,7 @@ long long * prefix_sum(int* arr,int n)
     int j=1;
     while(j<n)
     {
-        ans[j]=ans[j-1]+longer(arr[j]);
+        ans[j]=ans[j-1]+(long long)(arr[j]);
         j++;
     }
     return ans;
