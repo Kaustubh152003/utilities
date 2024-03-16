@@ -30,15 +30,6 @@ long long * prefix_sum(int* arr,int n)
     }
     return ans;
 }
-
-int conv(int a) //converts a boolean to int
-{
-    if(a==1)
-    return 1;
-    else
-    return 0;
-}
-
 int get_catalan(int n,int* arr)
 {
     if(n==0)
