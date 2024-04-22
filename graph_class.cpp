@@ -121,7 +121,7 @@ class graph
             }
         }
     }
-    void dfs(int v)
+    void dfs()
     {
         this->initialize_marks(0);
         int j=0;
