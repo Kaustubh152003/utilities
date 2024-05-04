@@ -3,6 +3,7 @@ class graph
     private:
     struct node{
         int key;
+        int weight;
         struct node* next;
     };
     struct node** list;
@@ -12,12 +13,14 @@ class graph
     {
         struct node* ptr=(struct node*)malloc(sizeof(struct node)*1);
         ptr->key=x;
+        ptr->weight=1;
         ptr->next=NULL;
         return ptr;
     }
-    struct node* add_node_to_list(struct node* head,int x) //returns head of the new list
+    struct node* add_node_to_list(struct node* head,int x,int w) //returns head of the new list
     {
         struct node* ptr=this->create(x);
+        ptr->weight=w;
         ptr->next=head;
         return ptr;
     }
@@ -77,17 +80,17 @@ class graph
         if(mark[u]==-1)
         mark[u]=0;
     }
-    void add_edge(int u,int v)
+    void add_edge(int u,int v,int w)
     {
         this->add_vertex(u);
         this->add_vertex(v);
-        list[u]=this->add_node_to_list(list[u],v);
+        list[u]=this->add_node_to_list(list[u],v,w);
         
     }
     void add_undirected_edge(int u,int v)
     {
-        this->add_edge(u,v);
-        this->add_edge(v,u);
+        this->add_edge(u,v,w);
+        this->add_edge(v,u,w);
     }
     void delete_edge(int u,int v)
     {
