@@ -9,16 +9,35 @@ void swap(char* a,char* b)
     *a=*b;
     *b=temp;
 }
-void reverse(char* str, int n)
+int size_of_str(char* str)
 {
     int j=0;
-    int p=n-1;
-    while(j<p)
+    while(str[j]!='\0')
+    j++;
+    return j;
+}
+int str_length(char* str) 
+{
+    int j=0;
+    while(str[j]!='\0')
+    j++;
+    return j;
+}
+char* reverse_string(char* str)
+{
+    int n=str_length(str);
+    char* ans=(char*)malloc(sizeof(char)*(n+1));
+    int j=n-1;
+    int p=0;
+    while(j>=0)
     {
-        swap(str+j,str+p);
-        j++;
-        p--;
+        ans[p]=str[j];
+        p++;
+        j--;
     }
+    ans[p]='\0';
+    return ans;
+
 }
 void print_string_from_intarray(int* arr,int n)
 {
@@ -47,13 +66,6 @@ int isPalindrome(char *str)
     else
     return 0;
     
-}
-int size_of_str(char* str)
-{
-    int j=0;
-    while(str[j]!='\0')
-    j++;
-    return j;
 }
 void print_till_x(char* str,int x) // prints the string only till the xth character
 {
