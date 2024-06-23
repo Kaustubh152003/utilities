@@ -24,6 +24,22 @@ void initialize_grid(int** table,int n,int m,int val)
         j++;
     }
 }
+void scan_grid(int** table,int n,int m)
+{
+    int j=0;
+    while(j<n)
+    {
+        int k=0;
+        while(k<m)
+        {
+            int x;
+            scanf("%d ",&x);
+            table[j][k]=x;
+            k++;
+        }
+        j++;
+    }
+}
 void print_grid(int** table,int n,int m)
 {
     int j=0;
