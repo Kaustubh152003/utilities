@@ -55,3 +55,14 @@ int* array_from_ll(struct ListNode* head,int* size_of_array)
     *size_of_array=n;
     return arr;
 }
+struct ListNode* arr_to_ll(int* arr,int n)
+{
+	if(n==0)
+	return 0;
+	else
+	{
+	  struct ListNode* ptr=create(arr[0]);
+	  ptr->next=func(arr+1,n-1);
+	  return ptr;
+	}
+}
