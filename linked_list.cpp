@@ -62,7 +62,7 @@ struct ListNode* arr_to_ll(int* arr,int n)
 	else
 	{
 	  struct ListNode* ptr=create(arr[0]);
-	  ptr->next=func(arr+1,n-1);
+	  ptr->next=arr_to_ll(arr+1,n-1);
 	  return ptr;
 	}
 }
