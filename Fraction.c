@@ -2,7 +2,15 @@ struct Fraction
 {
     long long int num;
     long long int den;
+
 };
+struct Fraction new_Fraction(long long int num,long long int den)
+{
+    struct Fraction ans;
+    ans.num=num;
+    ans.den=den;
+    return ans;
+}
 long long int gcd(long long a,long long b)
 {
     a=abs(a);
@@ -19,26 +27,26 @@ long long int gcd(long long a,long long b)
     return gcd(b%a,a);
 
 }
+struct Fraction reduce_Fraction(struct Fraction a)
+{
+    long long g=gcd(a.num,a.den);
+    struct Fraction ans;
+    ans.num=a.num/g;
+    ans.den=a.den/g;
+    return ans;
+}
 struct Fraction add_Fraction(struct Fraction a,struct Fraction b)
 {
     long long int x=a.num * b.den + b.num * a.den;
-    long long int y=a.den * b.den;
-    int g=gcd(x,y);
-    struct Fraction ans;
-    ans.num=x/g;
-    ans.den=y/g;
-    return ans;
+    long long int y=a.den * b.den; 
+    return reduce_Fraction(new_Fraction(x,y));
 }
 struct Fraction subtract_Fraction(struct Fraction a,struct Fraction b)
 {
     long long int x=a.num * b.den - b.num * a.den;
     long long int y=a.den * b.den;
-    int g=gcd(x,y);
-    struct Fraction ans;
-    ans.num=x/g;
-    ans.den=y/g;
-    return ans;
-}
+    return reduce_Fraction(new_Fraction(x,y));
+} 
 char* num_to_string(int x)
 {
 
