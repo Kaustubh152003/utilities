@@ -84,6 +84,17 @@ int max_array(int* arr,int n)
     }
     return max;
 }
+long long array_sum(int* arr,int n)
+{
+    int j=0;
+    long long sum=0;
+    while(j<n)
+    {
+        sum=sum+(long long)arr[j];
+        j++;
+    }
+    return sum;
+}
 void concatinate(int* arr1,int n1,int* arr2,int n2,int* target)
 {
         int j=0;
