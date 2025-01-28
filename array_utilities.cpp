@@ -1,46 +1,6 @@
 #include <stdio.h>
-void reverse_array(int* arr,int n)
-{
-    int j=0;
-    int p=n-1;
-    while(j<p)
-    {
-        int temp=arr[p];
-        arr[p]=arr[j];
-        arr[j]=temp;
-        p--;
-        j++;
-    }
-}
-
-void initialize_array(int* arr,int n,int k)
-{
-    int j=0;
-    while(j<n)
-    {
-        arr[j]=k;
-        j++;
-    }
-}
-
-void print_array(int* arr,int n)
-{
-    int j=0;
-    while(j<n)
-    {
-        printf("%d ",arr[j]);
-        j++;
-    }
-}
-void print_string_from_intarray(int* arr,int n)
-{
-    int j=0;
-    while(j<n)
-    {
-        printf("%c",arr[j]);
-        j++;
-    }
-}
+#include <bits/stdc++.h>
+using namespace std;
 void scan_array(int* arr,int n)
 {
     	int j=0;
@@ -50,7 +10,37 @@ void scan_array(int* arr,int n)
 	    j++;
 	}
 }
-int* duplicate_array(int* arr,int n,int* target)
+void print_array(int* arr,int n)
+{
+    int j=0;
+    while(j<n)
+    {
+        printf("%d ",arr[j]);
+        j++;
+    }
+}
+void initialize_array(int* arr,int n,int k)
+{
+    int j=0;
+    while(j<n)
+    {
+        arr[j]=k;
+        j++;
+    }
+}
+int* duplicate_array(int* arr,int n)
+{
+    int* ans=(int*)malloc(sizeof(int)*n);
+    int j=0;
+    while(j<n)
+    {
+        ans[j]=arr[j];
+        j++;
+    }
+    return ans;
+
+}
+void copy_array(int* arr,int n,int* target)
 {
     int j=0;
     while(j<n)
@@ -58,7 +48,6 @@ int* duplicate_array(int* arr,int n,int* target)
         target[j]=arr[j];
         j++;
     }
-    return arr;
 }
 int min_array(int* arr,int n)
 {
@@ -95,6 +84,15 @@ long long array_sum(int* arr,int n)
     }
     return sum;
 }
+void print_string_from_intarray(int* arr,int n)
+{
+    int j=0;
+    while(j<n)
+    {
+        printf("%c",arr[j]);
+        j++;
+    }
+}
 void concatinate(int* arr1,int n1,int* arr2,int n2,int* target)
 {
         int j=0;
@@ -110,6 +108,19 @@ void concatinate(int* arr1,int n1,int* arr2,int n2,int* target)
             p++;
             j++;
         }
+}
+void reverse_array(int* arr,int n)
+{
+    int j=0;
+    int p=n-1;
+    while(j<p)
+    {
+        int temp=arr[p];
+        arr[p]=arr[j];
+        arr[j]=temp;
+        p--;
+        j++;
+    }
 }
 int* vector_to_array(vector<int> v,int* array_size)
 {

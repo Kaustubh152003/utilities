@@ -1,3 +1,5 @@
+#include <bits/stdc++.h>
+using namespace std;
 int** make_grid(int n,int m) //makes and returns a grid of size n x m
 {
     int** table=(int**)malloc(sizeof(int*)*n);

@@ -1,3 +1,5 @@
+#include <stdlib.h>
+#include <math.h>
 int positive_modulo(long long int x,long long int y)
 {
     long long z=((x%y)+y)%y;
@@ -9,7 +11,7 @@ long long power(long long x,long long a,long long mod)
     return 1;
     else
     {
-        long long p=power(x,a/2);
+        long long p=power(x,a/2,mod);
         p=p*p;
         p=p%mod;
         if(a%2==1)
@@ -25,7 +27,7 @@ long long * prefix_sum(int* arr,int n)
     int j=1;
     while(j<n)
     {
-        ans[j]=ans[j-1]+longer(arr[j]);
+        ans[j]=ans[j-1]+(long long)arr[j];
         j++;
     }
     return ans;

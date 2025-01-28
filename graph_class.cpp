@@ -1,3 +1,5 @@
+#include <bits/stdc++.h>
+using namespace std;
 class graph
 {
     private:
@@ -87,7 +89,7 @@ class graph
         list[u]=this->add_node_to_list(list[u],v,w);
         
     }
-    void add_undirected_edge(int u,int v)
+    void add_undirected_edge(int u,int v,int w)
     {
         this->add_edge(u,v,w);
         this->add_edge(v,u,w);
