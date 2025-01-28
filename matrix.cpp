@@ -1,3 +1,5 @@
+#include <bits/stdc++.h>
+using namespace std;
 int** multiply_matrix(int** mat1,int x1,int y1,int** mat2,int x2,int y2,int* x,int* y)
 {
     if(y1==x2)

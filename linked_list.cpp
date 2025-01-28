@@ -5,6 +5,11 @@
  *     struct ListNode *next;
  * };
  */
+#include <stdlib.h>
+struct ListNode {
+     int val;
+     struct ListNode *next;
+ };
 struct ListNode* create(int x)
 {
     struct ListNode* ptr=(struct ListNode*)malloc(sizeof(struct ListNode));

@@ -1,8 +1,5 @@
-#include <iostream>
-#include <algorithm>
-#include <bits/stdc++.h>
 #include <math.h>
-using namespace std;
+#include <stdio.h>
 struct graph{
     struct node* list[200001];
     int mark[200001];
@@ -160,7 +157,7 @@ void delete_edge(struct graph* g,int x,int y) //in building and verification. No
 }
 int height(struct graph* g,int v)
 {
-    node* ptr=g->list[v];
+    struct node* ptr=g->list[v];
     g->mark[v]=1;
     int max=1;
     while(ptr!=0)

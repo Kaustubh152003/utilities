@@ -1,27 +1,29 @@
+#include <stdlib.h>
+#include <math.h>
 
 
 // u can include this code in main instead. prime[p]=1 if p is prime
-int prime[100000];
-    int k=0;
-    while(k<100000)
-    {
-        prime[k]=1;
-        k++;
-    }
-    k=2;
-    while(k<100000)
-    {
-        if(prime[k]==1)
-        {
-            int l=2;
-            while(k*l<100000)
-            {
-                prime[k*l]=0;
-                l++;
-            }
-        }
-        k++;
-    }
+// int prime[100000];
+// int k=0;
+// while(k<100000)
+// {
+//     prime[k]=1;
+//     k++;
+// }
+// k=2;
+// while(k<100000)
+// {
+//     if(prime[k]==1)
+//     {
+//         int l=2;
+//         while(k*l<100000)
+//         {
+//             prime[k*l]=0;
+//             l++;
+//         }
+//     }
+//     k++;
+// }
 
 //
 
@@ -94,5 +96,28 @@ void prime_factorize(int x,int* table,int sp) //sets the prime factorization int
             table[ptr-primes]++;
         }
 }
-
+int main()
+{
+    int prime[100000];
+    int k=0;
+    while(k<100000)
+    {
+        prime[k]=1;
+        k++;
+    }
+    k=2;
+    while(k<100000)
+    {
+        if(prime[k]==1)
+        {
+            int l=2;
+            while(k*l<100000)
+            {
+                prime[k*l]=0;
+                l++;
+            }
+        }
+        k++;
+    }
+}
 //refer https://codeforces.com/contest/1823/submission/204409852

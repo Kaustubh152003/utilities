@@ -1,3 +1,4 @@
+#include <math.h>
 int number_of_divisors(int x) //number of divisors
 {
     int j=1;
