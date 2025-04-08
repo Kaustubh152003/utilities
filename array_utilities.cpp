@@ -3,7 +3,7 @@
 using namespace std;
 void scan_array(int* arr,int n)
 {
-    	int j=0;
+    int j=0;
 	while(j<n)
 	{
 	    scanf("%d ",arr+j);
@@ -27,6 +27,16 @@ void initialize_array(int* arr,int n,int k)
         arr[j]=k;
         j++;
     }
+}
+int array_equal(int* arr1,int n1,int* arr2,int n2)
+{
+    int j=0;
+    while(j<n1 && j<n2 && arr1[j]==arr2[j])
+    j++;
+    if(j==n1 && j==n2)
+    return 1;
+    else
+    return 0;
 }
 int* duplicate_array(int* arr,int n)
 {
